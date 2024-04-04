@@ -1,3 +1,0 @@
-C:/Users/user/Documents/IS-2_semestr/CH/1_lab/build/CMakeFiles/1lab.dir
-C:/Users/user/Documents/IS-2_semestr/CH/1_lab/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/user/Documents/IS-2_semestr/CH/1_lab/build/CMakeFiles/ZERO_CHECK.dir
