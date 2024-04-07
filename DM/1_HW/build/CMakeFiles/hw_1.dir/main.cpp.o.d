@@ -1,7 +1,7 @@
 CMakeFiles/hw_1.dir/main.cpp.o: \
- /home/nikolay/Документы/IS-2_2023/DM/main.cpp \
+ /home/nikolay/Документы/2-semester/DM/1_HW/main.cpp \
  /usr/include/stdc-predef.h \
- /home/nikolay/Документы/IS-2_2023/DM/10.cpp \
+ /home/nikolay/Документы/2-semester/DM/1_HW/10.cpp \
  /usr/include/c++/13/iostream /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/c++/13/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \

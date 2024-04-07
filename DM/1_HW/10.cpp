@@ -24,11 +24,9 @@ int find(int*& parent, int v) {
 }
 
 void Union(int v1, int v2, int*& parent) {
-    v1 = find(parent, v1);
-    v2 = find(parent, v2);
-    if (v1 != v2) {
-        parent[v1] = v2;
-    }
+    int v_1 = find(parent, v1);
+    int v_2 = find(parent, v2);
+    parent[v_1] = v_2;
 }
 
 std::set<std::pair<int, int>> Boruvki(std::vector<std::vector<int>>& graph, int n) {
@@ -40,27 +38,44 @@ std::set<std::pair<int, int>> Boruvki(std::vector<std::vector<int>>& graph, int 
         parent[i] = i;
     }
 
-    while (mst.size() <= n - 1) {
-        std::cout << mst.size() << '\n';
+    while (mst.size() != n - 1) {
         for (int i = 0; i < n; ++i) {
             int vertex = 0;
             int min_edge = -1;
             for (int j = 0; j < n; ++j) {
-                if (graph[i][j] != -1 && (find(parent, i) != find(parent, j)) && (min_edge == -1 || min_edge > graph[i][j])) {
+                if (graph[i][j] != -1 && (min_edge == -1 || min_edge > graph[i][j])) {
+                    if (i != j && (find(parent, i) == find(parent, j))) {
+                        break;
+                    }
                     min_edge = graph[i][j];
                     vertex = j;
                 }
             }
-            if (min_edge != -1 && std::find(mst.begin(), mst.end(), std::pair<int, int>{vertex, i}) == mst.end()) {
+            if (min_edge != -1) {
                 mst.insert({i, vertex});
+                Union(i, vertex, parent);
             }
         }
-        for (auto p : mst) {
-            Union(p.first, p.second, parent);
-        }
     }
+
+    for (int i = 0; i < n; ++i) {
+        if (parent[i] >= 10 && i != 0) {
+            std::cout << "  ";
+        }
+        else if (parent[i] < 10 && i != 0) {
+            std::cout << " ";
+        }
+        std::cout << char('a' + i);
+    }
+    std::cout << '\n';
+
+    for (int i = 0; i < n; ++i) {
+        std::cout << parent[i] << " ";
+    }
+    std::cout << '\n';
     return mst;
 }
+
 
 void task_10() {
     int n = 21;

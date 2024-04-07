@@ -79,14 +79,6 @@ void task_6() {
 
     int start = std::min(start_c - 'a', 20), end = std::min(end_c - 'a', 20);
 
-    // for (int i = 0 ; i < n; ++i) {
-    //     for (int j = 0; j < n; ++j) {
-    //         //std::cout << char(parent[i][j].second + 'a') << " ";
-    //         //std::cout << dist[i][j] << " ";
-    //         std::cout << "(" << parent[i][j].first << ", " << parent[i][j].second << ") ";
-    //     }
-    //     std::cout << '\n';
-    // }
     std::pair<int, int> cur_v = parent[start][end];
 
     std::vector<int> path;

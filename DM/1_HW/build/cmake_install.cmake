@@ -1,4 +1,4 @@
-# Install script for directory: /home/nikolay/Документы/IS-2_2023/DM
+# Install script for directory: /home/nikolay/Документы/2-semester/DM/1_HW
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/nikolay/Документы/IS-2_2023/DM/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/nikolay/Документы/2-semester/DM/1_HW/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

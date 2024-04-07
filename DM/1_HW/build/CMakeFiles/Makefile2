@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nikolay/Документы/IS-2_2023/DM
+CMAKE_SOURCE_DIR = /home/nikolay/Документы/2-semester/DM/1_HW
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nikolay/Документы/IS-2_2023/DM/build
+CMAKE_BINARY_DIR = /home/nikolay/Документы/2-semester/DM/1_HW/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/hw_1.dir/clean
 CMakeFiles/hw_1.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hw_1.dir/build.make CMakeFiles/hw_1.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hw_1.dir/build.make CMakeFiles/hw_1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikolay/Документы/IS-2_2023/DM/build/CMakeFiles --progress-num=1,2 "Built target hw_1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikolay/Документы/2-semester/DM/1_HW/build/CMakeFiles --progress-num=1,2 "Built target hw_1"
 .PHONY : CMakeFiles/hw_1.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/hw_1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikolay/Документы/IS-2_2023/DM/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikolay/Документы/2-semester/DM/1_HW/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/hw_1.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikolay/Документы/IS-2_2023/DM/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikolay/Документы/2-semester/DM/1_HW/build/CMakeFiles 0
 .PHONY : CMakeFiles/hw_1.dir/rule
 
 # Convenience name for target.
