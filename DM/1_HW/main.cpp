@@ -1,7 +1,7 @@
-#include "10.cpp"
+#include "6.cpp"
 
 
 int main() {
-    task_10();
+    task_6();
     return 0;
 }

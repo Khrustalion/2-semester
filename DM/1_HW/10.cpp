@@ -6,7 +6,7 @@
 //             minEdge
 //             for uv из E:
 //                 if component[u] != component[v]:
-//                 minEdge = uv
+//                     minEdge = uv
 //             mst.add(minEdge)
 //             Union(u, v)
 //     return mst
