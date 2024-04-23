@@ -1,3 +1,0 @@
-/home/nikolay/Документы/2-semester/ALG/lab11/build/CMakeFiles/lab11.dir
-/home/nikolay/Документы/2-semester/ALG/lab11/build/CMakeFiles/edit_cache.dir
-/home/nikolay/Документы/2-semester/ALG/lab11/build/CMakeFiles/rebuild_cache.dir
