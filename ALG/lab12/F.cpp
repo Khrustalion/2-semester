@@ -6,28 +6,27 @@
 #include <cstring>
 #include <stdint.h>
 
-uint64_t getHash1(std::string s) {
-    uint64_t hash = 0;
-    int n = s.size();
-    for (int i = 0; i < n; ++i) {
-        hash += (s[i] - 'a' + 1) * std::pow(2, i);
+uint32_t getHash(std::string str) {
+    uint32_t h = 0;
+    for (auto c : str) {
+        h ^= c;
+        h *= 0x5bd1e995;
+        h ^= h >> 15;
     }
-    return hash;
+}
+
+uint64_t getHash1(uint32_t x) {
+    return (x * 31 + 157) % (int)1e5;
 } 
 
-uint64_t getHash2(std::string s) {
-    uint64_t hash = 0;
-    int n = s.size();
-    for (int i = 0; i < n; ++i) {
-        hash += (s[i] - 'a' + 1) * std::pow(7, i);
-    }
-    return hash;
+uint64_t getHash2(uint32_t x) {
+    return ((x * 211 + 13) % ((int)1e5 + 2)) % (int)1e5;
 }
 
 class hash_table {
     public:
-    std::vector<std::string> table_1;
-    std::vector<std::string> table_2;
+    std::vector<uint32_t> table_1;
+    std::vector<uint32_t> table_2;
     std::vector<bool> free_1;
     std::vector<bool> free_2;
     int n;
@@ -36,30 +35,30 @@ class hash_table {
 
     hash_table(int n_) {
         n = n_;
-        table_1 = std::vector<std::string>(n);
-        table_2 = std::vector<std::string>(n);
+        table_1 = std::vector<uint32_t>(n);
+        table_2 = std::vector<uint32_t>(n);
         free_1 = std::vector<bool>(n, true);
         free_2 = std::vector<bool>(n, true);
     }
 
-    void insert(std::string s) {
-        uint64_t hash1 = getHash1(s) % n;
-        uint64_t hash2 = getHash2(s) % n;
+    void insert(uint32_t h) {
+        uint64_t hash1 = getHash1(h) % n;
+        uint64_t hash2 = getHash2(h) % n;
         if (free_1[hash1]) {
-            table_1[hash1] = s;
+            table_1[hash1] = h;
             free_1[hash1] = false;
         }
         else if (free_2[hash2]) {
-            table_2[hash2] = s;
+            table_2[hash2] = h;
             free_2[hash2] = false;
         } else {
-            std::string tmp = table_1[hash1];
-            table_1[hash1] = s;
+            uint32_t tmp = table_2[hash2];
+            table_2[hash2] = h;
             this->insert(tmp);
         }   
     }
 
-    bool find(std::string s) {
+    bool find(uint32_t s) {
         uint64_t hash1 = getHash1(s) % n;
         if ((!free_1[hash1]) && (s == table_1[hash1])) {
             return true;
@@ -72,45 +71,43 @@ class hash_table {
     }
 };
 
-void find(std::vector<std::string>& v, std::string s) {
-    for (auto x : v) {
-        if (x == s) {
-            std::exit(1);
-        }
-    }
-}
-
 void solve() {
     int n;
     std::cin >> n;
 
-    hash_table p1(4 * n);
-    hash_table p2(4 * n);
-    hash_table p3(4 * n);
+    hash_table p1(8 * n);
+    hash_table p2(8 * n);
+    hash_table p3(8 * n);
 
-    std::vector<std::string> f1;
-    std::vector<std::string> f2;
-    std::vector<std::string> f3;
+    std::vector<uint32_t> f1;
+    std::vector<uint32_t> f2;
+    std::vector<uint32_t> f3;
 
     std::string file;
 
     for (int i = 0; i < n; ++i) {
         std::cin >> file;
 
-        p1.insert(file);
-        f1.push_back(file);
+        uint32_t h = getHash(file);
+
+        p1.insert(h);
+        f1.push_back(h);
     }
     for (int i = 0; i < n; ++i) {
         std::cin >> file;
 
-        p2.insert(file);
-        f2.push_back(file);
+        uint32_t h = getHash(file);
+
+        p2.insert(h);
+        f2.push_back(h);
     }
     for (int i = 0; i < n; ++i) {
         std::cin >> file;
 
-        p3.insert(file);
-        f3.push_back(file);
+        uint32_t h = getHash(file);
+
+        p3.insert(h);
+        f3.push_back(h);
     }
 
 

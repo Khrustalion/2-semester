@@ -1,4 +1,4 @@
-#include "A.cpp"
+#include "F.cpp"
 
 int main() {
     solve();
