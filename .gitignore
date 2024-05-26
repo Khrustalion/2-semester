@@ -1,2 +1,9 @@
+#biuld file
 build/
 .vscode/
+
+#Cmake file
+CMakeLists.txt
+
+#binary files
+*.o
