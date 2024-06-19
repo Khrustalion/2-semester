@@ -1,0 +1,14 @@
+namespace Files;
+
+table name_file {
+    name:string;
+    id:ulong(key);
+    dl:ulong;
+}
+
+table id_files {
+    files:[name_file];
+    d_avg:ulong;
+}
+
+root_type id_files;

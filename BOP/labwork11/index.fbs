@@ -1,0 +1,17 @@
+namespace Index;
+
+table File {
+    id:ulong(key);
+    rows:[ulong];
+}
+
+table Node {
+    word:string(key);
+    files:[File];
+}
+
+table FilesIndex {
+    words:[Node];
+}
+
+root_type FilesIndex;

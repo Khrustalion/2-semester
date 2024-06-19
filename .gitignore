@@ -1,9 +1,10 @@
 #biuld file
-build/
-.vscode/
+*build/
+*.vscode/
 
 #Cmake file
 CMakeLists.txt
 
 #binary files
 *.o
+
